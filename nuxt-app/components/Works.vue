@@ -5,7 +5,7 @@
         title="Фотографии наших работ"
         sub-title="Посмотрите фотографии недавно выполненных нами работ"
       />
-      <carousel :items-to-show="4" wrapAround="true">
+      <carousel :items-to-show="4" :wrapAround="true">
         <slide v-for="slide in images" :key="slide">
           <img
             @click="

@@ -14,7 +14,8 @@
     </div>
     <div class="nav col-12" ref="header">
       <div class="container">
-        <ul class="nav-list">
+        <div class="burger-menu" @click="toggleMenu">Е Меню сайта</div>
+        <ul class="nav-list" v-if="menuOpen">
           <li class="nav-list-item" v-for="link in links">
             <a class="nav-list-link" :href="'#' + link.src">{{ link.title }}</a>
           </li>
@@ -52,7 +53,18 @@ onMounted(() => {
       header.value.classList.remove("fixed");
     }
   });
+  window.addEventListener("resize", openMenu);
 });
+onUnmounted(() => {
+  window.removeEventListener("resize", openMenu);
+});
+const menuOpen = ref(true);
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value;
+};
+const openMenu = () => {
+  menuOpen.value = true;
+};
 </script>
 
 <style scoped>
@@ -88,16 +100,26 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
 }
-
+.burger-menu {
+  display: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
 .nav.fixed {
   position: fixed;
   top: 0;
   width: 100%;
 }
 @media screen and (max-width: 500px) {
-  .header-content{
+  .header-content {
     flex-direction: column;
     align-items: flex-start;
+  }
+  .nav-list {
+    flex-direction: column;
+  }
+  .burger-menu {
+    display: block;
   }
 }
 </style>

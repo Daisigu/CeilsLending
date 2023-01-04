@@ -6,7 +6,11 @@
         sub-title="Квалифицированный технолог не допускает ошибок! Точная оценка стоимости работ"
       />
       <div class="order-content">
-        <OrderForm class="col-8" @on-submit="handleSubmit" />
+        <OrderForm
+          btn-text="Вызвать замерщика"
+          class="col-8"
+          @on-submit="handleSubmit"
+        />
         <div class="rabotyaga-wrapper">
           <img class="rabotyaga" src="@/assets/images/rabotyaga.jpg" alt="" />
         </div>

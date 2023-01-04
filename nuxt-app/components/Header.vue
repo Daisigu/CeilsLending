@@ -3,11 +3,11 @@
     <div class="container">
       <div class="header-content col-12">
         <div class="header-logo-wrapper">logo</div>
-        <div class="header-address col-lg-4 col-sm-12">
+        <div class="header-address col-lg-4">
           <span> 660079, г. Красноярск, ул. 60 лет Октября, д. 121 </span>
         </div>
         <div class="contacts">
-          <h2>891393939391</h2>
+          <h2><a href="tel:+891393939391">891393939391</a></h2>
           <h5>test@gmail.com</h5>
         </div>
       </div>
@@ -72,6 +72,10 @@ onMounted(() => {
   text-decoration: none;
   margin-left: 1rem;
 }
+.contacts h2 a {
+  color: white;
+  text-decoration: none;
+}
 .nav-list {
   padding: 0.5rem;
   width: 100%;
@@ -89,5 +93,11 @@ onMounted(() => {
   position: fixed;
   top: 0;
   width: 100%;
+}
+@media screen and (max-width: 500px) {
+  .header-content{
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

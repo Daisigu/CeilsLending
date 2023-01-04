@@ -1,7 +1,7 @@
 <template>
   <section id="main" class="main">
     <div class="container">
-      <div class="main-block col-6">
+      <div class="main-block col-lg-6 col-md-8 col-12">
         <h1 class="main-title">Натяжные потолки, окна, балконы, ремонт</h1>
         <h5 class="main-subtitle">Дарим подарки на Новый год!</h5>
         <h5 class="main-subtitle">Звоните нам, расскажем условия акции</h5>
@@ -46,7 +46,7 @@
         <h1>Рассчитать стоимость</h1>
       </template>
       <template #main>
-        <OrderForm @onSubmit="onSubmit" />
+        <OrderForm btnText="Рассчитать стоимость" @onSubmit="onSubmit" />
       </template>
     </UI-Modal>
     <UI-Modal :open="confirmOrderModal" @close="confirmOrderModal = false">

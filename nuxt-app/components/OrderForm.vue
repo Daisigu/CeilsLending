@@ -21,11 +21,14 @@
       Нажимая на кнопку отправки, вы даете согласие на обработку своих
       персональных данных
     </span>
-    <UIButton class="order-button" type="submit"> Вызвать замерщика </UIButton>
+    <UIButton class="order-button" type="submit"> {{btnText}} </UIButton>
   </form>
 </template>
 
 <script setup>
+const props = defineProps({
+  btnText: String
+})
 const emit = defineEmits(["onSubmit"]);
 
 const handleSubmit = () => {

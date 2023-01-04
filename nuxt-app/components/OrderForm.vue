@@ -4,7 +4,7 @@
       class="order-form-name"
       required
       type="text"
-      placeholder="Введите свое имя *"
+      placeholder="Введите свое имя*"
     />
     <input
       class="order-form-number"

@@ -1,7 +1,7 @@
 <template>
   <section id="main" class="main">
     <div class="container">
-      <div class="main-block col-lg-6 col-md-8 col-12">
+      <div class="main-block col-lg-8 col-md-10 col-12 col-xl-6">
         <h1 class="main-title">Натяжные потолки, окна, балконы, ремонт</h1>
         <h5 class="main-subtitle">Дарим подарки на Новый год!</h5>
         <h5 class="main-subtitle">Звоните нам, расскажем условия акции</h5>
@@ -50,6 +50,9 @@
       </template>
     </UI-Modal>
     <UI-Modal :open="confirmOrderModal" @close="confirmOrderModal = false">
+      <template #header>
+        <h1>Заявка принята</h1>
+      </template>
       <template #main>
         Ваше сообщение успешно отправлено! Мы свяжемся с вами сразу после
         прочтения письма, обычно это не занимает много времени.
@@ -108,6 +111,12 @@ const onSubmit = () => {
   mix-blend-mode: darken;
   z-index: 0;
 }
-.card-img img {
+@media screen and (max-width: 576px) {
+.main-cards{
+  flex-wrap: wrap;
+}
+.main-block *{
+  margin: 0.2rem 0;
+}
 }
 </style>

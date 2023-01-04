@@ -19,7 +19,7 @@
           />
         </div>
         <div class="total-sum col-12 col-lg-4 col-md-6">
-          <h1>{{ currentValue }} rub.</h1>
+          <h1 class="totalCost">{{ currentValue }} ₽</h1>
         </div>
       </div>
     </div>
@@ -80,6 +80,9 @@ const totalCost = computed(() => {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+.totalCost{
+  font-size: 40px;
+}
 .calculator-content {
   margin-top: 2rem;
   display: flex;
@@ -97,5 +100,10 @@ const totalCost = computed(() => {
 }
 .calc-input {
   padding: 0.5rem;
+}
+@media screen and (max-width: 576px) {
+.input-wrapper{
+  padding: 0.5rem;
+}
 }
 </style>

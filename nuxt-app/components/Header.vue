@@ -4,22 +4,33 @@
       <div class="header-content col-12">
         <div class="header-logo-wrapper">logo</div>
         <div class="header-address col-lg-4">
-          <span> 660079, г. Красноярск, ул. 60 лет Октября, д. 121 </span>
+          <span class="header-address">
+            <i class="bi bi-geo-alt"></i> 660079, г. Красноярск, ул. 60 лет
+            Октября, д. 121
+          </span>
         </div>
         <div class="contacts">
-          <h2><a href="tel:+891393939391">891393939391</a></h2>
-          <h5>test@gmail.com</h5>
+          <h2>
+            <a href="tel:+891393939391"
+              ><i class="bi bi-telephone-forward"></i> 891393939391</a
+            >
+          </h2>
+          <h5><i class="bi bi-envelope-at"></i> test@gmail.com</h5>
         </div>
       </div>
     </div>
     <div class="nav col-12" ref="header">
       <div class="container">
-        <div class="burger-menu" @click="toggleMenu">Е Меню сайта</div>
-        <ul class="nav-list" v-if="menuOpen">
-          <li class="nav-list-item" v-for="link in links">
-            <a class="nav-list-link" :href="'#' + link.src">{{ link.title }}</a>
-          </li>
-        </ul>
+        <div class="burger-menu" @click="toggleMenu"><i v-if="!menuOpen" class="bi bi-list"></i> <i v-else class="bi bi-x"></i> Меню сайта</div>
+        <transition name="slide-down">
+          <ul class="nav-list" v-if="menuOpen">
+            <li class="nav-list-item" v-for="link in links">
+              <a class="nav-list-link" :href="'#' + link.src">{{
+                link.title
+              }}</a>
+            </li>
+          </ul>
+        </transition>
       </div>
     </div>
   </header>
@@ -53,17 +64,17 @@ onMounted(() => {
       header.value.classList.remove("fixed");
     }
   });
-  window.addEventListener("resize", openMenu);
+  window.addEventListener("resize", closeMenu);
 });
 onUnmounted(() => {
-  window.removeEventListener("resize", openMenu);
+  window.removeEventListener("resize", closeMenu);
 });
 const menuOpen = ref(true);
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value;
 };
-const openMenu = () => {
-  menuOpen.value = true;
+const closeMenu = () => {
+  menuOpen.value = false;
 };
 </script>
 
@@ -95,6 +106,7 @@ const openMenu = () => {
 }
 .nav {
   background-color: #1a7fe4;
+  user-select: none;
 }
 .header-content {
   display: flex;
@@ -110,7 +122,7 @@ const openMenu = () => {
   top: 0;
   width: 100%;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 576px) {
   .header-content {
     flex-direction: column;
     align-items: flex-start;
@@ -121,5 +133,20 @@ const openMenu = () => {
   .burger-menu {
     display: block;
   }
+  .header-address{
+    font-size: 14px;
+  }
+  .header-content *{
+    margin: 0.5rem 0;
+  }
+}
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s ease-out;
+}
+.slide-down-enter-from,
+.slide-down-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 </style>

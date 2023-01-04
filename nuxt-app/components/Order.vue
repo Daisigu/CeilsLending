@@ -8,7 +8,7 @@
       <div class="order-content">
         <OrderForm
           btn-text="Вызвать замерщика"
-          class="col-8"
+          class="col-sm-12 col-lg-8"
           @on-submit="handleSubmit"
         />
         <div class="rabotyaga-wrapper">
@@ -17,6 +17,9 @@
       </div>
     </div>
     <UI-Modal :open="confirmOrderModal" @close="confirmOrderModal = false">
+      <template #header>
+        <h1>Заявка принята</h1>
+      </template>
       <template #main>
         Ваше сообщение успешно отправлено! Мы свяжемся с вами сразу после
         прочтения письма, обычно это не занимает много времени.
@@ -42,5 +45,10 @@ const handleSubmit = () => {
 }
 .order-content {
   display: flex;
+}
+@media screen and (max-width: 576px) {
+  .rabotyaga-wrapper {
+    display: none;
+  }
 }
 </style>

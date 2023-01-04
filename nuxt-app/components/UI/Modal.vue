@@ -2,17 +2,19 @@
   <transition name="fade">
     <div class="modal-backdrop" v-show="open" @click.self="close()">
       <div class="modal-content">
-        <div class="vue-modal-main">
-          <div class="modal-header">
+        <div :class="{ 'vue-modal-main': !imageModal }">
+          <div class="modal-header" v-if="!imageModal">
             <div>
               <slot name="header" />
             </div>
-            <span @click="close"> X </span>
+            <span @click="close">
+              <span class="close-modal-button"><i class="bi bi-x-lg"></i></span>
+            </span>
           </div>
           <div class="modal-body">
             <slot name="main" />
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" v-if="!imageModal">
             <slot name="footer" />
           </div>
         </div>
@@ -24,6 +26,7 @@
 <script setup>
 const props = defineProps({
   open: Boolean,
+  imageModal: Boolean,
 });
 const emit = defineEmits(["close"]);
 const close = () => {
@@ -50,6 +53,9 @@ onUnmounted(() => document.removeEventListener("keyup", handleKeyUp));
   background-color: rgba(0, 0, 0, 0.58);
   z-index: 1;
 }
+.close-modal-button{
+  cursor: pointer;
+}
 .modal-content {
   max-width: 500px;
   margin: 5rem 1rem;
@@ -62,6 +68,8 @@ onUnmounted(() => document.removeEventListener("keyup", handleKeyUp));
 .modal-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid lightgray;
 }
 .vue-modal-main {
   position: relative;

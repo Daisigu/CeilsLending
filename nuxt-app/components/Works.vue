@@ -5,9 +5,14 @@
         title="Фотографии наших работ"
         sub-title="Посмотрите фотографии недавно выполненных нами работ"
       />
-      <carousel :items-to-show="4" :wrapAround="true">
+      <carousel
+        :items-to-show="4"
+        :wrapAround="true"
+        :breakpoints="breakpoints"
+      >
         <slide v-for="slide in images" :key="slide">
           <img
+          class="carousel-img"
             @click="
               fullImgSrc = slide;
               imgModal = true;
@@ -25,7 +30,7 @@
         </template>
       </carousel>
     </div>
-    <UI-Modal :open="imgModal" @close="imgModal = false">
+    <UI-Modal :image-modal="true" :open="imgModal" @close="imgModal = false">
       <template #main>
         <img style="width: 100%; user-select: none" :src="fullImgSrc" alt="" />
       </template>
@@ -49,6 +54,29 @@ const images = ref([
   "https://sun9-48.userapi.com/impg/PZX0P9wiYNLBQRAagKGGAvDceeW-4Zgv6SqyZQ/j3TBEEdcUUI.jpg?size=480x270&quality=95&sign=af80054cbe9c4f10faa9905616b96d60&type=album",
   "https://sun1.sibirix.userapi.com/impg/ZxsUuDvpM9UFYVN_JdjXyBK9iCMgtYsg4ozrvA/Xt84ulgoFRE.jpg?size=1090x1036&quality=96&sign=d252ab4d6efd97eacd34ce0e62e3f8ab&type=album",
 ]);
+const breakpoints = ref({
+  300: {
+    itemsToShow: 1,
+    snapAlign: "center",
+  },
+  400: {
+    itemsToShow: 1.5,
+    snapAlign: "center",
+  },
+  576: {
+    itemsToShow: 2,
+    snapAlign: "center",
+  },
+  700: {
+    itemsToShow: 2,
+    snapAlign: "center",
+  },
+  // 1024 and up
+  1024: {
+    itemsToShow: 4,
+    snapAlign: "start",
+  },
+});
 </script>
 
 <style scoped>
@@ -59,5 +87,8 @@ const images = ref([
 }
 .carousel {
   margin-top: 2rem;
+}
+.carousel-img{
+  cursor: pointer;
 }
 </style>

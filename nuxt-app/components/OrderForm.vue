@@ -3,6 +3,7 @@
     <input
       class="order-form-name"
       required
+      v-model.trim="formSubmitData.name"
       type="text"
       placeholder="Введите свое имя*"
       maxlength="50"
@@ -10,14 +11,15 @@
     <input
       class="order-form-number"
       required
+      v-model.trim="formSubmitData.phone"
       maxlength="50"
       type="text"
       placeholder="Укажите свой телефон*"
     />
     <textarea
       cols="30"
+      v-model.trim="formSubmitData.comment"
       rows="10"
-      
       maxlength="550"
       placeholder="Напишите, что вас интересует ( не обязательно )"
     ></textarea>
@@ -34,9 +36,14 @@ const props = defineProps({
   btnText: String,
 });
 const emit = defineEmits(["onSubmit"]);
+const formSubmitData = ref({
+  name: "",
+  phone: "",
+  comment: "",
+});
 
 const handleSubmit = () => {
-  emit("onSubmit");
+  emit("onSubmit", formSubmitData);
 };
 </script>
 

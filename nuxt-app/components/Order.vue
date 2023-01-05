@@ -30,8 +30,10 @@
 
 <script setup>
 const confirmOrderModal = ref(false);
-const handleSubmit = () => {
+const handleSubmit = (formSubmitData) => {
+  console.log(formSubmitData.value);
   confirmOrderModal.value = true;
+  formSubmitData.value = {}
 };
 </script>
 

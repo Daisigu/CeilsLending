@@ -64,9 +64,11 @@
 <script setup>
 const orderModal = ref(false);
 const confirmOrderModal = ref(false);
-const onSubmit = () => {
+const onSubmit = (formSubmitData) => {
+  console.log(formSubmitData.value);
   confirmOrderModal.value = true;
   orderModal.value = false;
+  formSubmitData.value = {}
 };
 </script>
 <style scoped>
@@ -112,11 +114,11 @@ const onSubmit = () => {
   z-index: 0;
 }
 @media screen and (max-width: 576px) {
-.main-cards{
-  flex-wrap: wrap;
-}
-.main-block *{
-  margin: 0.2rem 0;
-}
+  .main-cards {
+    flex-wrap: wrap;
+  }
+  .main-block * {
+    margin: 0.2rem 0;
+  }
 }
 </style>

@@ -21,7 +21,10 @@
     </div>
     <div class="nav col-12" ref="header">
       <div class="container">
-        <div class="burger-menu" @click="toggleMenu"><i v-if="!menuOpen" class="bi bi-list"></i> <i v-else class="bi bi-x"></i> Меню сайта</div>
+        <div class="burger-menu" @click="toggleMenu">
+          <i v-if="!menuOpen" class="bi bi-list"></i>
+          <i v-else class="bi bi-x"></i> Меню сайта
+        </div>
         <transition name="slide-down">
           <ul class="nav-list" v-if="menuOpen">
             <li class="nav-list-item" v-for="link in links">
@@ -64,10 +67,6 @@ onMounted(() => {
       header.value.classList.remove("fixed");
     }
   });
-  window.addEventListener("resize", closeMenu);
-});
-onUnmounted(() => {
-  window.removeEventListener("resize", closeMenu);
 });
 const menuOpen = ref(true);
 const toggleMenu = () => {
@@ -133,10 +132,10 @@ const closeMenu = () => {
   .burger-menu {
     display: block;
   }
-  .header-address{
+  .header-address {
     font-size: 14px;
   }
-  .header-content *{
+  .header-content * {
     margin: 0.5rem 0;
   }
 }

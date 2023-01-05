@@ -53,7 +53,7 @@ onUnmounted(() => document.removeEventListener("keyup", handleKeyUp));
   background-color: rgba(0, 0, 0, 0.58);
   z-index: 1;
 }
-.close-modal-button{
+.close-modal-button {
   cursor: pointer;
 }
 .modal-content {

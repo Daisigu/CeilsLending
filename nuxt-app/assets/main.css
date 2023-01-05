@@ -13,6 +13,7 @@ input{
 textarea {
   padding: 0.5rem;
   border-radius: 0.5rem;
+  resize: none;
   border: 1px solid rgb(183, 183, 183);
 }
 input:focus,

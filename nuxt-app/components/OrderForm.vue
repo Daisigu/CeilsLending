@@ -5,35 +5,39 @@
       required
       type="text"
       placeholder="Введите свое имя*"
+      maxlength="50"
     />
     <input
       class="order-form-number"
       required
+      maxlength="50"
       type="text"
       placeholder="Укажите свой телефон*"
     />
     <textarea
       cols="30"
       rows="10"
+      
+      maxlength="550"
       placeholder="Напишите, что вас интересует ( не обязательно )"
     ></textarea>
     <span>
       Нажимая на кнопку отправки, вы даете согласие на обработку своих
       персональных данных
     </span>
-    <UIButton class="order-button" type="submit"> {{btnText}} </UIButton>
+    <UIButton class="order-button" type="submit"> {{ btnText }} </UIButton>
   </form>
 </template>
 
 <script setup>
 const props = defineProps({
-  btnText: String
-})
+  btnText: String,
+});
 const emit = defineEmits(["onSubmit"]);
 
 const handleSubmit = () => {
-    emit('onSubmit')
-}
+  emit("onSubmit");
+};
 </script>
 
 <style scoped>

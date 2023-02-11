@@ -83,7 +83,6 @@ const cards = ref([
 .card {
   padding: 1rem;
   padding-inline: 2rem;
-  border: 1px solid lightgray;
   border-radius: 0.3rem;
   margin-right: 0rem;
 }

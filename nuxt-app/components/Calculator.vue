@@ -33,19 +33,19 @@ const inputs = ref([
     value: 0,
   },
   {
-    title: "Жопа  в метрах",
+    title: "N  в метрах",
     value: 0,
   },
   {
-    title: "Жопа  в метрах",
+    title: "E  в метрах",
     value: 0,
   },
   {
-    title: "Жопа  в метрах",
+    title: "P  в метрах",
     value: 0,
   },
   {
-    title: "Жопа  в метрах",
+    title: "L  в метрах",
     value: 0,
   },
 ]);
@@ -80,7 +80,7 @@ const totalCost = computed(() => {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
-.totalCost{
+.totalCost {
   font-size: 40px;
 }
 .calculator-content {
@@ -102,8 +102,8 @@ const totalCost = computed(() => {
   padding: 0.5rem;
 }
 @media screen and (max-width: 576px) {
-.input-wrapper{
-  padding: 0.5rem;
-}
+  .input-wrapper {
+    padding: 0.5rem;
+  }
 }
 </style>
